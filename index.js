@@ -42,7 +42,7 @@ function serveRoot (req, res, state, m) {
       writeTitle(),
       pull.once('<p>Local repositories:</p>'),
       writeRepos(state.dbs)
-    ]),
+    ])
   )
 }
 
