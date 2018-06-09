@@ -40,7 +40,7 @@ function serveRoot (req, res, state, m) {
   return pull(
     cat([
       writeTitle(),
-      pull.once('<p>Local repositories:</p>'),
+      pull.once('<p><b>Local repositories:</b></p>'),
       writeRepos(state.dbs)
     ])
   )
@@ -60,7 +60,7 @@ function serveBlob (req, res, state, m) {
 }
 
 function writeTitle () {
-  return pull.once('<h1>gitverse</h1>')
+  return pull.once('<h1>gitverse</h1><p style="margin-top:-13px; margin-left:15px"><i>scrappy p2p git with friends</i></p>')
 }
 
 function writeRepos (dbs) {
