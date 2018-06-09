@@ -13,9 +13,17 @@
     "test": "tape test/*.js",
     "lint": "standard"
   },
-  "keywords": [
-  ],
-  "dependencies": {},
+  "keywords": [],
+  "dependencies": {
+    "http": "0.0.0",
+    "hyperdb-git-repo": "^1.0.2",
+    "marked": "^0.4.0",
+    "pull-cat": "^1.1.11",
+    "pull-git-repo": "^1.2.1",
+    "pull-stream": "^3.6.8",
+    "routes": "^2.1.0",
+    "stream-to-pull-stream": "^1.7.2"
+  },
   "devDependencies": {
     "tape": "~4.6.2",
     "standard": "~10.0.0"
