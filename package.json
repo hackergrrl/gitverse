@@ -2,7 +2,7 @@
   "name": "gitverse",
   "description": "p2p git social frontend",
   "author": "Stephen Whitmore <sww@eight.net>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "url": "git://github.com/noffle/gitverse.git"
   },
