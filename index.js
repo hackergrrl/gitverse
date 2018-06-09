@@ -209,8 +209,11 @@ function writeTree (db, repo, hash) {
 }
 
 function writeReadme (db, repo, hash) {
+  if (hash === null) return pull.once('no readme found')
+
   return deferred(function (cb) {
     repo.getRef(hash, function (err, object, id) {
+      if (err) throw err
       pull(
         object.read,
         pull.collect(function (err, bufs) {
@@ -227,6 +230,7 @@ function writeReadme (db, repo, hash) {
 function writeBlob (db, repo, hash) {
   return deferred(function (cb) {
     repo.getRef(hash, function (err, object, id) {
+      if (err) throw err
       pull(
         object.read,
         pull.collect(function (err, bufs) {
