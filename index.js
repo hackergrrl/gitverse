@@ -96,6 +96,7 @@ function writeRepo (db, repo) {
     // files list
     deferred(function (cb) {
       repo.resolveRef('HEAD', function (err, hash) {
+        if (err) return cb(null, pull.once('empty repo'))
         pull(
           repo.readCommit(hash),
           pull.drain(function (field) {
@@ -109,6 +110,7 @@ function writeRepo (db, repo) {
     // readme
     deferred(function (cb) {
       repo.resolveRef('HEAD', function (err, hash) {
+        if (err) return cb(null, pull.once(''))
         pull(
           repo.readCommit(hash),
           pull.drain(function (field) {
