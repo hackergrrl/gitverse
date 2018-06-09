@@ -1,4 +1,3 @@
-var http = require('http')
 var pull = require('pull-stream')
 var toPull = require('stream-to-pull-stream')
 var cat = require('pull-cat')
@@ -26,7 +25,7 @@ module.exports = function (dbs) {
     keyToDb: keyToDb
   }
 
-  var server = http.createServer(function (req, res) {
+  return function (req, res) {
     res.setHeader('content-type', 'text/html')
 
     var m = router.match(req.url)
@@ -34,11 +33,7 @@ module.exports = function (dbs) {
      m ? m.fn(req, res, state, m) : pull.once('404'),
       toPull.sink(res)
     )
-  })
-
-  server.listen(9111, function () {
-    console.log('gitverse live on http://localhost:9111')
-  })
+  }
 }
 
 function serveRoot (req, res, state, m) {
